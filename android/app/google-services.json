@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "967189559457",
+    "project_id": "trip-77c07",
+    "storage_bucket": "trip-77c07.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:967189559457:android:be6f8c856e970d0a6c18e0",
+        "android_client_info": {
+          "package_name": "com.tripconnect.dev"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "967189559457-8pcenfv8qsp9m1lkm0q70k1jmvaa5p2g.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.tripconnect.dev",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "967189559457-8dn6upkm4fs5ocnl7lm79fj7vdspnrij.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBi3DEwMHmSVroz-Nu__UNFaEO6hnJFPZo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "967189559457-8dn6upkm4fs5ocnl7lm79fj7vdspnrij.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

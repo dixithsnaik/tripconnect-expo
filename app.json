@@ -15,7 +15,10 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      
+      "package": "com.tripconnect.dev",
+      "googleServicesFile": "./google-services.json"
     },
     "web": {
       "bundler": "metro",
@@ -24,18 +27,12 @@
     },
     "plugins": [
       "expo-router",
-      [
-        "expo-splash-screen",
-        {
-          "image": "./assets/images/splash-icon.png",
-          "imageWidth": 200,
-          "resizeMode": "contain",
-          "backgroundColor": "#ffffff"
-        }
-      ]
+      "@react-native-firebase/app",
+      "@react-native-google-signin/google-signin"
     ],
-    "experiments": {
-      "typedRoutes": true
-    }
+      "experiments": {
+        "typedRoutes": true
+      }
+    }    
   }
-}
+
