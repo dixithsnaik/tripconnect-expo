@@ -4,7 +4,7 @@ import MapView, { Marker, Region } from 'react-native-maps';
 import * as Location from 'expo-location';
 import auth from '@react-native-firebase/auth';
 import { GoogleSignin } from '@react-native-google-signin/google-signin';
-import { GOOGLE_MAPS_API_KEY } from '@env'; 
+
 
 const HomeView: React.FC = () => {
   const [location, setLocation] = useState<Region | null>(null);
@@ -58,7 +58,6 @@ const HomeView: React.FC = () => {
         }}
         showsUserLocation={true}
         showsMyLocationButton={false}
-        googleMapsApiKey={GOOGLE_MAPS_API_KEY}
       >
        
         {location && (
