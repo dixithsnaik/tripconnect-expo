@@ -6,8 +6,11 @@
    ```bash
    pnpm install
    ```
+2. run the following command to get android folder
+   ```bash
+   pnpm expo prebuild
 
-2. to get sha keys
+3. to get sha keys
    ```bash
    cd android
    ```
@@ -20,12 +23,17 @@
    ```
 
 
-3. get google-services.json from firebase setup for android "note: dont change anything in gradel files"
-   add google-services.json in android/app
+4. get google-services.json from firebase setup for android "note: dont change anything in gradel files"
    also add the same in root level
 
-4. create .env
-   add WEB_CLIENT_ID=your-web-clientid
+5. create .env
+   add 
+   ```bash
+   WEB_CLIENT_ID=your-web-clientid
+   PACKAGE_NAME=com.yourpackage.name
+   GOOGLE_SERVICES_FILE=./google-services.json
+   GOOGLE_MAPS_API_KEY=YOUR_GOOGLE_MAPS_API_KEY
+   ```
    inside your google-services.json
    "oauth_client": [
         {
@@ -42,11 +50,11 @@
         }
       ],
 
-5. run the following command
+6. run the following command
    ```bash
    pnpm expo prebuild
    ```
-6. Start the app
+7. Start the app
    debug mode
    ```bash
    pnpm expo run:android --variant debug
