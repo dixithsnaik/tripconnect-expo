@@ -7,11 +7,24 @@
    pnpm install
    ```
 
-2. get google-services.json from firebase setup for android "note: dont change anything in gradel files"
+2. to get sha keys
+   ```bash
+   cd android
+   ```
+   ```bash
+   keytool -list -v -keystore app/debug.keystore
+   ```
+   password 
+   ```bash
+   android
+   ```
+
+
+3. get google-services.json from firebase setup for android "note: dont change anything in gradel files"
    add google-services.json in android/app
    also add the same in root level
 
-3. create .env
+4. create .env
    add WEB_CLIENT_ID=your-web-clientid
    inside your google-services.json
    "oauth_client": [
@@ -29,12 +42,11 @@
         }
       ],
 
-4. run the following command
+5. run the following command
    ```bash
    pnpm expo prebuild
    ```
-
-5. Start the app
+6. Start the app
    debug mode
    ```bash
    pnpm expo run:android --variant debug
