@@ -43,3 +43,4 @@
     pnpm expo run:android
    ```
 
+"# tripconnect-expo" 
