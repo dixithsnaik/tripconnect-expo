@@ -37,6 +37,10 @@ yarn-error.*
 
 app-example
 
+# Environment files
 .env
-/google-services.json
-/android/app/google-services.json
+
+# Google Services JSON (Firebase)
+google-services.json
+android/app/google-services.json
+
