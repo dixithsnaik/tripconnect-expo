@@ -1,31 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
-import MapView, { Marker, Region } from 'react-native-maps';
+import MapView, { Marker, Polyline } from 'react-native-maps';
 import * as Location from 'expo-location';
 import auth from '@react-native-firebase/auth';
 import { GoogleSignin } from '@react-native-google-signin/google-signin';
+import useTrackingPath from '../../hooks/useTrackingPath';
 
+const destination = { latitude: 12.3052, longitude: 76.6552 };
 
 const HomeView: React.FC = () => {
-  const [location, setLocation] = useState<Region | null>(null);
-
-  useEffect(() => {
-    (async () => {
-      const { status } = await Location.requestForegroundPermissionsAsync();
-      if (status !== 'granted') {
-        console.error('Location permission denied');
-        return;
-      }
-
-      const currentLocation = await Location.getCurrentPositionAsync({});
-      setLocation({
-        latitude: currentLocation.coords.latitude,
-        longitude: currentLocation.coords.longitude,
-        latitudeDelta: 0.05,
-        longitudeDelta: 0.05,
-      });
-    })();
-  }, []);
+  const { currentPosition, path } = useTrackingPath("current", destination);
 
   const signOut = async () => {
     try {
@@ -38,7 +22,6 @@ const HomeView: React.FC = () => {
     }
   };
 
-
   return (
     <View style={styles.container}>
       {/* Sign Out Button at Top-Right */}
@@ -50,18 +33,35 @@ const HomeView: React.FC = () => {
       <MapView
         style={styles.map}
         provider="google"
-        initialRegion={location || {
-          latitude: 37.7749, 
-          longitude: -122.4194,
+        initialRegion={currentPosition ? {
+          latitude: currentPosition.latitude,
+          longitude: currentPosition.longitude,
+          latitudeDelta: 0.05,
+          longitudeDelta: 0.05,
+        } : {
+          latitude: destination.latitude, 
+          longitude: destination.longitude,
           latitudeDelta: 0.05,
           longitudeDelta: 0.05,
         }}
         showsUserLocation={true}
         showsMyLocationButton={false}
       >
-       
-        {location && (
-          <Marker coordinate={{ latitude: location.latitude, longitude: location.longitude }} title="You are here" />
+        {/* User's Live Location */}
+        {currentPosition && (
+          <Marker coordinate={currentPosition} title="You are here" />
+        )}
+
+        {/* Destination Marker */}
+        <Marker coordinate={destination} title="Mysore Palace" pinColor="blue" />
+
+        {/* Route Line (Path) */}
+        {path && (
+          <Polyline
+            coordinates={[path.from, path.to]}
+            strokeColor="red"
+            strokeWidth={4}
+          />
         )}
       </MapView>
     </View>
